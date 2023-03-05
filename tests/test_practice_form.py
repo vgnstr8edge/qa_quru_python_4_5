@@ -1,4 +1,4 @@
-from selene import browser, be, have
+from selene import browser, be, have, command
 import os
 
 
@@ -18,9 +18,9 @@ def test_practice_form(browser_settings):
     browser.element('#currentAddress').should(be.blank).type('Pushkina str')
     browser.element('#react-select-3-input').should(be.blank).type('Haryana').press_enter()
     browser.element('#react-select-4-input').should(be.blank).type('Karnal').press_enter()
-    browser.element('#submit').click()
+    browser.element('#submit').perform(command.js.click)
 
-#проверка данных
+    #проверка данных
 
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
